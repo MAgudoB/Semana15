@@ -141,3 +141,11 @@ function reload() {
 function backToMenu() {
     window.location.href = "index.html";
 }
+
+function checkPixel(mapData, index, pixelOne, pixelTwo, pixelThree) {
+    var isSelected = false;
+    if (mapData[index] == pixelOne && mapData[index + 1] == pixelTwo && mapData[index + 2] == pixelThree) {
+        isSelected = true;
+    }
+    return isSelected;
+}
