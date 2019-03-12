@@ -8,9 +8,9 @@ function loop() {
 
     Player.movementControl();
 
-    Player.draw();
     switchButton.draw();
     door.draw();
+    Player.draw();
 
     clearTimeout(timer);
     timer = setTimeout("loop()", 33);

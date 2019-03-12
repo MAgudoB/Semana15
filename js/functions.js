@@ -177,15 +177,15 @@ function loadImages() {
     openDoorImageV = new Image();
     switchOffImage = new Image();
     switchOnImage = new Image();
-    switchOffImage.src = "img/portalA.png";
-    switchOffImage.src = "img/portalB.png";
+    switchOffImage.src = "img/deactivatedButton.png";
+    switchOnImage.src = "img/activeButton.png";
     doorImageV.src = "img/closedDoorV.png";
     openDoorImageV.src = "img/openDoorV.png";
 }
 
 function initButtonsAndDoors() {
+    door = new Door(704, 257, doorImageV, openDoorImageV);
     switchButton = new Switch(170, 450, switchOffImage, switchOnImage, door);
-    door = new Door(705, 260, doorImageV, openDoorImageV);
 }
 
 $(document).ready(function () {
@@ -197,3 +197,10 @@ $(document).ready(function () {
         loop();
     });
 });
+
+function squareCollision(x1, y1, w1, h1, x2, y2, w2, h2) {
+    return x1 < x2 + w2
+        && x1 + w1 > x2
+        && y1 < y2 + h2
+        && y1 + h1 > y2;
+}

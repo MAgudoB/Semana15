@@ -8,7 +8,7 @@ function Trigger(x, y, imgOffSrc, imgOnSrc) {
 
     this.trigger = function () {
         this.triggered = !this.triggered;
-        if (triggered) {
+        if (this.triggered) {
             this.src = this.imgOnSrc;
         } else {
             this.src = this.imgOffSrc;

@@ -5,11 +5,12 @@ function Switch(x, y, imgOff, imgOn, target) {
 
     this.trigger = function () {
         this.triggered = !this.triggered;
-        if (triggered) {
-            this.draw(this.imgOnSrc);
+        if (this.triggered) {
+            this.src = this.imgOnSrc;
         } else {
-            this.draw(this.imgOffSrc);
+            this.src = this.imgOffSrc;
         }
+        this.draw(this.src);
         this.target.trigger(this.triggered);
     }
 }
