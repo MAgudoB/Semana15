@@ -1,24 +1,41 @@
 <html>
 
 <head>
-    <script src="lib/jquery-3.3.1.min.js"></script>
+    <script src="js/lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="js/lib/style.css">
 </head>
 
 
 <body>
-    <canvas id="map"></canvas>
-    <canvas id="colisions"></canvas>
-    <canvas id="interactive"></canvas>        
+
+    <div id="containerCanvas">
+        <!--Pongo el tamaño manual,cambiarlo en GlobalConditions-->
+        <canvas id="map" width="768" height="576"></canvas>
+        <canvas id="colisions" width="768" height="576"></canvas>
+        <canvas id="interactive" width="768" height="576"></canvas>
+    </div>
 
 
+
+
+
+    <!--MENU-->
+
+    <div id="menu">
+        <div id="subMenu1">
+            <p id="newGame" class="menuItems">New Game</p>
+            <p class="menuItems">Join Game</p>
+        </div>
+    </div>
 
 
     <!--Files-->
-     <script src="js/Class/Player2.js"></script>
-     <script src="js/globalConditions.js"></script> 
-     
-     
-     
+    <script src="js/GlobalConditions.js"></script>
+    <script src="js/Class/Player2.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/loop.js"></script>
+    <script src="js/lib/utils.js"></script>
+
 </body>
 
 </html>

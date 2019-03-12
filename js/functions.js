@@ -142,6 +142,9 @@ function backToMenu() {
     window.location.href = "index.html";
 }
 
+
+//SEMANA 14 NUEVO
+
 function checkPixel(mapData, index, pixelOne, pixelTwo, pixelThree) {
     var isSelected = false;
     if (mapData[index] == pixelOne && mapData[index + 1] == pixelTwo && mapData[index + 2] == pixelThree) {
@@ -149,3 +152,11 @@ function checkPixel(mapData, index, pixelOne, pixelTwo, pixelThree) {
     }
     return isSelected;
 }
+
+$("#newGame").click(function(){    
+    //CARGAR nueva partida base de datos y mantener al jugador en espera
+
+    //Pruebas
+    $("#menu").fadeOut("slow");
+    loop();
+});

@@ -1,7 +1,7 @@
 function Player2(){
     this.id;
-    this.x;
-    this.y;
+    this.x=50;
+    this.y=50;
 
     this.img=new Image();
     this.img.src="img/players/player1.png";
@@ -17,8 +17,8 @@ function Player2(){
     }
 
 
-    this.paint=function(){
-        
+    this.paint=function(){        
+        interactiveContext.drawImage(this.img,this.x,this.y);
     }
 
 }
