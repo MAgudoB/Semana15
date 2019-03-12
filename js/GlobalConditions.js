@@ -1,16 +1,17 @@
 function GlobalConditions() {
-
-    var timer;
-    var canvasWidth = 768;
-    var canvasHeight = 576;
-
-    var Player = new Player2();
-
+    //Canvas dimensions
+    var CANVAS_WIDTH = 768;
+    var CANVAS_HEIGHT = 576;
 
     // Contextos
     var MAP_CTX = undefined;
     var COLLISION_CTX = undefined;
     var INTERACTIVE_CTX = undefined;
+
+    var timer;
+    var Player = new Player2();
+
+
 
 
 

@@ -1,21 +1,21 @@
 function initMapCanvas() {
     var canvas = $(document).document.getElementById("map");
-    canvas.width(canvasWidth);
-    canvas.height(canvasHeight)
+    canvas.width(CANVAS_WIDTH);
+    canvas.height(CANVAS_HEIGHT)
     MAP_CTX = mapCanvas.getContext("2d");
 }
 
 function initCollisionCanvas() {
     var canvas = $(document).document.getElementById("collision");
-    canvas.width(canvasWidth);
-    canvas.height(canvasHeight)
+    canvas.width(CANVAS_WIDTH);
+    canvas.height(CANVAS_HEIGHT)
     COLLISION_CTX = mapCanvas.getContext("2d");
 }
 
 function initInteractiveCanvas() {
     var canvas = $(document).document.getElementById("interactive");
-    canvas.width(canvasWidth);
-    canvas.height(canvasHeight)
+    canvas.width(CANVAS_WIDTH);
+    canvas.height(CANVAS_HEIGHT)
     INTERACTIVE_CTX = mapCanvas.getContext("2d");
 }
 
