@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <script src="js/lib/jquery-3.3.1.min.js"></script>
+    <script src="js/mainMenu.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <h1 id="signIn">Login</h1>
+        <input type="text" placeholder="User" name="UserName" id="loginUser"><br>
+        <input type="password" placeholder="Password" name="Password" id="loginPassword"><br>
+        <button id="login" onclick="login()">Send</button>
+        <h1 id="signUp">Register</h1>
+        <input type="text" name="UserName" placeholder="User" id="signUpUser"><br>
+        <input type="password" name="Password" placeholder="Password" id="signUpPassword"><br>
+        <button id="register" onclick="signUp()">Send</button>
+        <p id="errorMessage"></p>
+    </div>
+</body>
+
+</html>
