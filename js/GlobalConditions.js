@@ -1,15 +1,17 @@
 
-    var timer;
-    var canvasWidth=768;
-    var canvasHeight=576;
-    
-    var Player=new Player2();
-    
+    //Canvas dimensions
+    var CANVAS_WIDTH = 768;
+    var CANVAS_HEIGHT = 576;
 
     // Contextos
-    var mapContext=document.getElementById("map").getContext("2d");
-    var colisionsContext =document.getElementById("colisions").getContext("2d");
-    var interactiveContext=document.getElementById("interactive").getContext("2d");
+    var MAP_CTX = undefined;
+    var COLLISION_CTX = undefined;
+    var INTERACTIVE_CTX = undefined;
+
+    var timer;
+    var Player = new Player2();
+
+
 
     //Ponemos el tamaño a los canvas
 
@@ -28,6 +30,3 @@
     imgMapCollisions.src="img/map_color_1.png";
 
 
-
-    mapContext.drawImage(imgMap,0,0);
-    colisionsContext.drawImage(imgMapCollisions,0,0);

@@ -1,3 +1,21 @@
+function initMapCanvas() {        
+    $("#map").attr("width", CANVAS_WIDTH);
+    $("#map").attr("height", CANVAS_HEIGHT);
+    MAP_CTX = document.getElementById("map").getContext("2d");
+}
+
+function initCollisionCanvas() {
+    $("#collision").attr("width", CANVAS_WIDTH);
+    $("#collision").attr("height", CANVAS_HEIGHT);
+    COLLISION_CTX = document.getElementById("collision").getContext("2d");
+}
+
+function initInteractiveCanvas() {
+    $("#interactive").attr("width", CANVAS_WIDTH);
+    $("#interactive").attr("height", CANVAS_HEIGHT);
+    INTERACTIVE_CTX = document.getElementById("interactive").getContext("2d");
+}
+
 $(document).keydown(function (event) {
     if (event.key == "w") { Player.acceleration=1;}
     if (event.key == "s") { Player.aceleration=-1; }

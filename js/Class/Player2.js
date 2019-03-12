@@ -3,7 +3,7 @@ function Player2() {
     this.x = 100;
     this.y = 400;
     this.acceleration = 0;
-    this.rotation=0;
+    this.rotation = 0;
     this.angle = 0;
     this.speed = 5;
 
@@ -12,7 +12,7 @@ function Player2() {
     this.img.src = "img/players/player1.png";
 
     this.rotate = function (value) {
-        this.angle+=value;
+        this.angle += value;
     }
 
     this.movementControl = function () {
@@ -20,41 +20,45 @@ function Player2() {
         if (collision == false) {
             this.movement();
         }
+
+        this.angle += this.rotation;
     }
 
 
 
-    this.movement = function (position, value) {                   
-            this.x += Math.cos(this.angle - Math.PI / 2) * this.speed * this.acceleration;
-            this.y += Math.sin(this.angle - Math.PI / 2) * this.speed * this.acceleration;        
-        
-            this.angle+=this.rotation;
-
+    this.movement = function (position, value) {
+        this.x += Math.cos(this.angle - Math.PI / 2) * this.speed * this.acceleration;
+        this.y += Math.sin(this.angle - Math.PI / 2) * this.speed * this.acceleration;       
     }
 
 
     this.draw = function () {
-        drawImageRot(interactiveContext, this.img, this.x, this.y, this.img.width, this.img.height, this.angle);
+        drawImageRot(INTERACTIVE_CTX, this.img, this.x, this.y, this.img.width, this.img.height, this.angle);
     }
 
     this.collision = function () {
-        interactiveContext.fillRect(
-            this.x + 8 + Math.cos(this.angle - Math.PI / 2) * this.speed * 3,
-            this.y + 8 + Math.sin(this.angle - Math.PI / 2) * this.speed * 3,
-            10,
-            10)
-        var colisionDatos = colisionsContext.getImageData(
-            this.x + 8 + Math.cos(this.angle - Math.PI / 2) * this.speed * 3,
-            this.y + 8 + Math.sin(this.angle - Math.PI / 2) * this.speed * 3,
+        // INTERACTIVE_CTX.fillRect(
+        //     this.x + 8 + Math.cos(this.angle - Math.PI / 2) * this.speed * 3,
+        //     this.y + 8 + Math.sin(this.angle - Math.PI / 2) * this.speed * 3,
+        //     10,
+        //     10)
+        var colisionDatos = COLLISION_CTX.getImageData(
+            this.x + 16,
+            this.y + 16,
             1,
             1).data;
 
         if (checkPixel(colisionDatos, 255, 0, 0) || checkPixel(colisionDatos, 0, 0, 255)) {
             console.log("colision");
             return true;
-        } else {
+        } else if (checkPixel(colisionDatos, 0, 0, 0)) {
+            this.die();
+        }
+        else {
             return false;
         }
+
+
 
         // //TODO Colisiones
         // var topImage = colisionsContext.getImageData(this.x, this.y - 5, 1, 1).data;
@@ -76,6 +80,11 @@ function Player2() {
         // else {
         //     return undefined;
         // }
+    }
+
+    //TODO 
+    this.die = function () {
+        console.log("mueres");
     }
 
 }
