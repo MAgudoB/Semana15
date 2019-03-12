@@ -6,6 +6,7 @@ function Trigger(x, y, imgOffSrc, imgOnSrc) {
     this.triggered = false;
 
     this.trigger = function () {
+        this.triggered = !this.triggered;
         if (triggered) {
             this.draw(this.imgOnSrc);
         } else {
@@ -14,6 +15,6 @@ function Trigger(x, y, imgOffSrc, imgOnSrc) {
     }
 
     this.draw = function (src) {
-        interactiveContext.drawImage(src, this.x, this.y);
+        INTERACTIVE_CTX.drawImage(src, this.x, this.y);
     }
 }
