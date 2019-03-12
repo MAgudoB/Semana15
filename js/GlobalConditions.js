@@ -14,12 +14,12 @@ var Player = new Player2();
 //Image
 var doorImageV = undefined;
 var openDoorImageV = undefined;
-var switchButtonImage = undefined;
+var switchOffImage = undefined;
+var switchOnImage = undefined;
 
 //Switch
 var switchButton = undefined;
-var openDoor = undefined;
-var closeDoor = undefined;
+var door = undefined;
 
 //Ponemos el tamaño a los canvas
 

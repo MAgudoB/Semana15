@@ -175,14 +175,17 @@ function checkPixel(mapData, pixelOne, pixelTwo, pixelThree) {
 function loadImages() {
     doorImageV = new Image();
     openDoorImageV = new Image();
-    switchButtonImage = new Image();
-    switchButtonImage.src = "img/portalA.png";
-    doorImageV.src = "img/closedDoorImageV.png";
-    openDoorImageV = "img/openDoorV.png";
+    switchOffImage = new Image();
+    switchOnImage = new Image();
+    switchOffImage.src = "img/portalA.png";
+    switchOffImage.src = "img/portalB.png";
+    doorImageV.src = "img/closedDoorV.png";
+    openDoorImageV.src = "img/openDoorV.png";
 }
 
 function initButtonsAndDoors() {
-    switchButton = new Switch();
+    switchButton = new Switch(170, 450, switchOffImage, switchOnImage, door);
+    door = new Door(705, 260, doorImageV, openDoorImageV);
 }
 
 $(document).ready(function () {
