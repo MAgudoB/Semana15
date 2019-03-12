@@ -4,6 +4,7 @@ $(document).ready(function () {
     initInteractiveCanvas();
     loadImages();
     initButtonsAndDoors();
+    console.log("canvas cargados")
     loadScenary(1);
 });
 
@@ -13,7 +14,6 @@ function loadScenary(scenaryId) {
 }
 
 function start() {
-    //Aqui cargaremos los menus iniciales nada mas inicies el juego
 
 
 
