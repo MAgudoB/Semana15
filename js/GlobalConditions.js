@@ -11,9 +11,15 @@ function GlobalConditions() {
     var timer;
     var Player = new Player2();
 
+    //Image
+    var doorImageV = undefined;
+    var openDoorImageV = undefined;
+    var switchButtonImage = undefined;
 
-
-
+    //Switch
+    var switchButton = undefined;
+    var openDoor = undefined;
+    var closeDoor = undefined;
 
     timer = setTimeout("inicio");
 }

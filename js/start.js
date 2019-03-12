@@ -2,6 +2,8 @@ $(document).ready(function () {
     initCollisionCanvas();
     initMapCanvas();
     initInteractiveCanvas();
+    loadImages();
+    initButtonsAndDoors();
     loadScenary(1);
 });
 

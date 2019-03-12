@@ -170,3 +170,16 @@ function checkPixel(mapData, index, pixelOne, pixelTwo, pixelThree) {
     }
     return isSelected;
 }
+
+function loadImages() {
+    doorImageV = new Image();
+    openDoorImageV = new Image();
+    switchButtonImage = new Image();
+    switchButtonImage.src = "img/portalA.png";
+    doorImageV.src = "img/closedDoorImageV.png";
+    openDoorImageV = "img/openDoorV.png";
+}
+
+function initButtonsAndDoors() {
+    switchButton = new Switch();
+}
