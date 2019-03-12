@@ -1,20 +1,21 @@
 $(document).keydown(function (event) {
-    if (event.key == "w") { player.movementControl(0, -1); }
-    if (event.key == "s") { player.movementControl(0, 1); }
-    if (event.key == "a") { player.movementControl(1, -1); }
-    if (event.key == "d") { player.movementControl(1, 1); }
-    if (event.key == "q") { player.movementControl(2, -0.1); }
-    if (event.key == "r") { player.movementControl(2, 0.1); }
-    if (event.key == " ") { player.shoot(); }
-    if (event.key == "1") { player.selectWeapon(1); }
-    if (event.key == "2") { player.selectWeapon(2); }
-    if (event.key == "3") { player.selectWeapon(3); }
+    if (event.key == "w") { Player.acceleration=1;}
+    if (event.key == "s") { Player.aceleration=-1; }
+    if (event.key == "a") { Player.rotation=-0.15; }
+    if (event.key == "d") { Player.rotation=+0.15; }
+
+    // if (event.key == "q") { Player.movementControl(2, -0.1); }
+    // if (event.key == "r") { Player.movementControl(2, 0.1); }
+    // if (event.key == " ") { Player.shoot(); }
+    // if (event.key == "1") { Player.selectWeapon(1); }
+    // if (event.key == "2") { Player.selectWeapon(2); }
+    // if (event.key == "3") { Player.selectWeapon(3); }
 });
 $(document).keyup(function (event) {
-    if (event.key == "w") { }
-    if (event.key == "s") { }
-    if (event.key == "a") { }
-    if (event.key == "d") { }
+    if (event.key == "w") { Player.acceleration=0 }
+    if (event.key == "s") { Player.acceleration=0}
+    if (event.key == "a") { Player.rotation=0}
+    if (event.key == "d") { Player.rotation=0}
 });
 
 
@@ -145,18 +146,20 @@ function backToMenu() {
 
 //SEMANA 14 NUEVO
 
-function checkPixel(mapData, index, pixelOne, pixelTwo, pixelThree) {
+function checkPixel(mapData, pixelOne, pixelTwo, pixelThree) {
     var isSelected = false;
-    if (mapData[index] == pixelOne && mapData[index + 1] == pixelTwo && mapData[index + 2] == pixelThree) {
+    if (mapData[0] == pixelOne && mapData[1] == pixelTwo && mapData[2] == pixelThree) {
         isSelected = true;
     }
     return isSelected;
 }
 
-$("#newGame").click(function(){    
-    //CARGAR nueva partida base de datos y mantener al jugador en espera
-
-    //Pruebas
-    $("#menu").fadeOut("slow");
-    loop();
+$( document ).ready(function() {    
+    $("#newGame").click(function(){    
+        //CARGAR nueva partida base de datos y mantener al jugador en espera
+    
+        //Pruebas
+        $("#menu").fadeOut("slow");
+        loop();
+    });
 });

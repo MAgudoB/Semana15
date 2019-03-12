@@ -1,4 +1,3 @@
-function GlobalConditions(){
 
     var timer;
     var canvasWidth=768;
@@ -23,5 +22,12 @@ function GlobalConditions(){
     //Images
     
     var imgMap=new Image();
-    imgMap.src="map_1.png";
-}
+    imgMap.src="img/map_1.png";
+
+    var imgMapCollisions = new Image();
+    imgMapCollisions.src="img/map_color_1.png";
+
+
+
+    mapContext.drawImage(imgMap,0,0);
+    colisionsContext.drawImage(imgMapCollisions,0,0);
