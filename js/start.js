@@ -2,6 +2,7 @@ $(document).ready(function () {
     initCollisionCanvas();
     initMapCanvas();
     initInteractiveCanvas();
+    console.log("canvas cargados")
     loadScenary(1);
 });
 
@@ -10,8 +11,7 @@ function loadScenary(scenaryId) {
     start();
 }
 
-function start() {
-    //Aqui cargaremos los menus iniciales nada mas inicies el juego
+function start() {    
 
 
 
