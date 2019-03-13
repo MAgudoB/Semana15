@@ -15,11 +15,6 @@ function initInteractiveCanvas() {
     $("#interactive").attr("height", CANVAS_HEIGHT);
     INTERACTIVE_CTX = document.getElementById("interactive").getContext("2d");
 }
-function initScannersCanvas() {
-    $("#scanners").attr("width", CANVAS_WIDTH);
-    $("#scanners").attr("height", CANVAS_HEIGHT);
-    SCANNERS_CTX = document.getElementById("scanners").getContext("2d");
-}
 
 
 $(document).keydown(function (event) {
