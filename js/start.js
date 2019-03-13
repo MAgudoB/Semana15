@@ -2,9 +2,9 @@ $(document).ready(function () {
     initCollisionCanvas();
     initMapCanvas();
     initInteractiveCanvas();
+    //initScannersCanvas();
     loadImages();
-    initButtonsAndDoors();
-    console.log("canvas cargados")
+    initButtonsAndDoors();    
     loadScenary(1);
 });
 
