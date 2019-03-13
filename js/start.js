@@ -2,6 +2,8 @@ $(document).ready(function () {
     initCollisionCanvas();
     initMapCanvas();
     initInteractiveCanvas();
+    loadImages();
+    initButtonsAndDoors();
     console.log("canvas cargados")
     loadScenary(1);
 });
@@ -11,7 +13,7 @@ function loadScenary(scenaryId) {
     start();
 }
 
-function start() {    
+function start() {
 
 
 

@@ -1,32 +1,39 @@
 
-    //Canvas dimensions
-    var CANVAS_WIDTH = 768;
-    var CANVAS_HEIGHT = 576;
+//Canvas dimensions
+var CANVAS_WIDTH = 768;
+var CANVAS_HEIGHT = 576;
 
-    // Contextos
-    var MAP_CTX = undefined;
-    var COLLISION_CTX = undefined;
-    var INTERACTIVE_CTX = undefined;
+// Contextos
+var MAP_CTX = undefined;
+var COLLISION_CTX = undefined;
+var INTERACTIVE_CTX = undefined;
 
-    var timer;
-    var Player = new Player2();
+var timer;
+var Player = new Player2();
+
+//Image
+var doorImageV = undefined;
+var openDoorImageV = undefined;
+var switchOffImage = undefined;
+var switchOnImage = undefined;
+
+//Switch
+var switchButton = undefined;
+var door = undefined;
+
+//Ponemos el tamaño a los canvas
+
+//He probado esto pero no funciona
+// $("#map").width(canvasWidth).height(canvasHeight);        
+// $("#colisions").attr("width",canvasWidth,"height",canvasHeight);
+// $("#interactive").css("width",canvasWidth).css("height",canvasHeight);
 
 
+//Images
 
-    //Ponemos el tamaño a los canvas
+var imgMap = new Image();
+imgMap.src = "img/map_1.png";
 
-    //He probado esto pero no funciona
-    // $("#map").width(canvasWidth).height(canvasHeight);        
-    // $("#colisions").attr("width",canvasWidth,"height",canvasHeight);
-    // $("#interactive").css("width",canvasWidth).css("height",canvasHeight);
-
-
-    //Images
-    
-    var imgMap=new Image();
-    imgMap.src="img/map_1.png";
-
-    var imgMapCollisions = new Image();
-    imgMapCollisions.src="img/map_color_1.png";
-
+var imgMapCollisions = new Image();
+imgMapCollisions.src = "img/map_color_1.png";
 

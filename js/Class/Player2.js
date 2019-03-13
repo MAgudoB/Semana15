@@ -6,6 +6,7 @@ function Player2() {
     this.rotation = 0;
     this.angle = 0;
     this.speed = 5;
+    this.inButton = false;
 
 
     this.img = new Image();
@@ -17,6 +18,7 @@ function Player2() {
 
     this.movementControl = function () {
         var collision = this.collision();
+        this.checkButtonCollision();
         if (collision == false) {
             this.movement();
         }
@@ -28,7 +30,7 @@ function Player2() {
 
     this.movement = function (position, value) {
         this.x += Math.cos(this.angle - Math.PI / 2) * this.speed * this.acceleration;
-        this.y += Math.sin(this.angle - Math.PI / 2) * this.speed * this.acceleration;       
+        this.y += Math.sin(this.angle - Math.PI / 2) * this.speed * this.acceleration;
     }
 
 
@@ -87,4 +89,15 @@ function Player2() {
         console.log("mueres");
     }
 
+    this.checkButtonCollision = function () {
+        if (squareCollision(this.x, this.y, this.img.width, this.img.height,
+            switchButton.x, switchButton.y, switchButton.src.width, switchButton.src.height)) {
+            if (!this.inButton) {
+                switchButton.trigger();
+                this.inButton = true;
+            }
+        } else {
+            this.inButton = false;
+        }
+    }
 }
