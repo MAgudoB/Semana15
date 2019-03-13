@@ -6,7 +6,7 @@ canvas{
     top:0px;
     left:0px;
 }
-#menu{
+.menu{
     position:absolute;
     background-color:red;    
     width:768px;
@@ -19,8 +19,30 @@ canvas{
     color:green;
 }
 
-#subMenu1{
+.subMenu1{
     position:absolute;
     top:150px;
     left:300px;
+}
+
+#container {
+    margin: auto;
+    width: 50%;
+    background-color: #ffffffc4;
+    border: solid 2px #000000;
+    border-radius: 15px;
+    margin-top: 200px;
+    text-align: -webkit-center;
+}
+
+#mainMenu{
+	display:none;
+}
+
+#newGameMenu{
+	display:none;
+}
+
+#joinGameMenu{
+	display:none;
 }
