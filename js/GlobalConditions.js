@@ -7,6 +7,7 @@ var CANVAS_HEIGHT = 576;
 var MAP_CTX = undefined;
 var COLLISION_CTX = undefined;
 var INTERACTIVE_CTX = undefined;
+var SCANNERS_CTX = undefined;
 
 var timer;
 var Player = new Player2();
@@ -20,13 +21,6 @@ var switchOnImage = undefined;
 //Switch
 var switchButton = undefined;
 var door = undefined;
-
-//Ponemos el tamaño a los canvas
-
-//He probado esto pero no funciona
-// $("#map").width(canvasWidth).height(canvasHeight);        
-// $("#colisions").attr("width",canvasWidth,"height",canvasHeight);
-// $("#interactive").css("width",canvasWidth).css("height",canvasHeight);
 
 
 //Images

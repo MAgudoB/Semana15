@@ -7,7 +7,8 @@ function Player2() {
     this.angle = 0;
     this.speed = 5;
     this.inButton = false;
-
+    this.portal0 = undefined;
+    this.portal1 = undefined;
 
     this.img = new Image();
     this.img.src = "img/players/player1.png";
@@ -22,8 +23,8 @@ function Player2() {
         if (collision == false) {
             this.movement();
         }
-
         this.angle += this.rotation;
+        this.scope();
     }
 
 
@@ -35,53 +36,55 @@ function Player2() {
 
 
     this.draw = function () {
-        drawImageRot(INTERACTIVE_CTX, this.img, this.x, this.y, this.img.width, this.img.height, this.angle);
+        drawImageRot(INTERACTIVE_CTX, this.img, this.x - (this.img.width / 4), this.y - (this.img.width / 4), this.img.width, this.img.height, this.angle);
     }
 
     this.collision = function () {
+        //Scaners 4 posiciones personaje
+        //Con uno solo funciona bien
+        // INTERACTIVE_CTX.fillStyle = "purple";
         // INTERACTIVE_CTX.fillRect(
-        //     this.x + 8 + Math.cos(this.angle - Math.PI / 2) * this.speed * 3,
-        //     this.y + 8 + Math.sin(this.angle - Math.PI / 2) * this.speed * 3,
-        //     10,
-        //     10)
+        //     this.x + (this.img.width/4) + Math.cos(this.angle - Math.PI / 2) * this.speed * 4,
+        //     this.y + (this.img.width/4) + Math.sin(this.angle - Math.PI / 2) * this.speed * 4,
+        //     2,
+        //     2)
+        // INTERACTIVE_CTX.fillRect(
+        //     this.x + (this.img.width/4) + Math.cos(this.angle - Math.PI) * this.speed * 4,
+        //     this.y + (this.img.width/4) + Math.sin(this.angle - Math.PI) * this.speed * 4,
+        //     2,
+        //     2)
+        // INTERACTIVE_CTX.fillRect(
+        //     this.x + (this.img.width/4)+ Math.cos(this.angle) * this.speed * 4,
+        //     this.y + (this.img.width/4) + Math.sin(this.angle) * this.speed * 4,
+        //     2,
+        //     2)
+        // INTERACTIVE_CTX.fillRect(
+        //     this.x + (this.img.width/4) + Math.cos(this.angle + Math.PI /2) * this.speed * 4,
+        //     this.y + (this.img.width/4) + Math.sin(this.angle + Math.PI /2) * this.speed * 4,
+        //     2,
+        //     2)
+
         var colisionDatos = COLLISION_CTX.getImageData(
-            this.x + 16,
-            this.y + 16,
+            this.x + (this.img.width/4) + Math.cos(this.angle - Math.PI / 2) * this.speed * 4,
+            this.y + (this.img.width/4) + Math.sin(this.angle - Math.PI / 2) * this.speed * 4,
+            1,
+            1).data;
+
+        var colisionCentralDatos = COLLISION_CTX.getImageData(
+            this.x + (this.img.width/4) + Math.cos(this.angle - Math.PI / 2) * this.speed ,
+            this.y + (this.img.width/4) + Math.sin(this.angle - Math.PI / 2) * this.speed ,
             1,
             1).data;
 
         if (checkPixel(colisionDatos, 255, 0, 0) || checkPixel(colisionDatos, 0, 0, 255)) {
             console.log("colision");
             return true;
-        } else if (checkPixel(colisionDatos, 0, 0, 0)) {
+        } else if (checkPixel(colisionCentralDatos, 0, 0, 0)) {
             this.die();
         }
         else {
             return false;
         }
-
-
-
-        // //TODO Colisiones
-        // var topImage = colisionsContext.getImageData(this.x, this.y - 5, 1, 1).data;
-        // var rightImage = colisionsContext.getImageData(this.x + this.sprite.width + 5, this.y, 1, 1).data;
-        // var downImage = colisionsContext.getImageData(this.x, this.y + this.sprite.height + 5, 1, 1).data;
-        // var leftImage = colisionsContext.getImageData(this.x - 5, this.y, 1, 1).data;
-        // if (checkPixel(topImage,255,0,0) && checkPixel(topImage,0,0,255)) {
-        //     return "top";
-        // }
-        // else if (rightImage.data[0] >= 250) {
-        //     return "right";
-        // }
-        // else if (downImage.data[0] >= 250) {
-        //     return "down";
-        // }
-        // else if (leftImage.data[0] >= 250) {
-        //     return "left";
-        // }
-        // else {
-        //     return undefined;
-        // }
     }
 
     //TODO 
@@ -99,5 +102,36 @@ function Player2() {
         } else {
             this.inButton = false;
         }
+    }
+
+    this.scope = function () {
+        INTERACTIVE_CTX.fillStyle = "red";
+        for (let index = 3; index < 1000; index++) {
+            INTERACTIVE_CTX.fillRect(
+                this.x + (this.img.width/4) + Math.cos(this.angle - Math.PI / 2) * this.speed * index,
+                this.y + (this.img.width/4) + Math.sin(this.angle - Math.PI / 2) * this.speed * index,
+                1,
+                1)
+            var dataParedes = COLLISION_CTX.getImageData(
+                this.x + (this.img.width/4) + Math.cos(this.angle - Math.PI / 2) * this.speed * index,
+                this.y + (this.img.width/4) + Math.sin(this.angle - Math.PI / 2) * this.speed * index,
+                1,
+                1).data   
+
+            if (checkPixel(dataParedes, 255, 0, 0) || checkPixel(dataParedes, 0, 0, 255)) {                
+                break;
+                //index = 1000;
+            }
+
+        }
+    }
+
+    this.shootPortal=function(number) {
+
+    }
+
+
+    this.nearOfPortal=function() {
+
     }
 }

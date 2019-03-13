@@ -15,15 +15,21 @@ function initInteractiveCanvas() {
     $("#interactive").attr("height", CANVAS_HEIGHT);
     INTERACTIVE_CTX = document.getElementById("interactive").getContext("2d");
 }
+function initScannersCanvas() {
+    $("#scanners").attr("width", CANVAS_WIDTH);
+    $("#scanners").attr("height", CANVAS_HEIGHT);
+    SCANNERS_CTX = document.getElementById("scanners").getContext("2d");
+}
+
 
 $(document).keydown(function (event) {
     if (event.key == "w") { Player.acceleration = 1; }
     if (event.key == "s") { Player.aceleration = -1; }
     if (event.key == "a") { Player.rotation = -0.15; }
-    if (event.key == "d") { Player.rotation = +0.15; }
+    if (event.key == "d") { Player.rotation = +0.15; }    
 
-    // if (event.key == "q") { Player.movementControl(2, -0.1); }
-    // if (event.key == "r") { Player.movementControl(2, 0.1); }
+    if (event.key == "q") { Player.shootPortal(0) }
+    if (event.key == "e") { Player.shootPortal(1) }
     // if (event.key == " ") { Player.shoot(); }
     // if (event.key == "1") { Player.selectWeapon(1); }
     // if (event.key == "2") { Player.selectWeapon(2); }
