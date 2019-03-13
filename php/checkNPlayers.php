@@ -3,7 +3,7 @@
     // Se conecta a la base de datos
     $mysqli = new mysqli("localhost", "semana14", "semana14", "game");
     //Seleccionamos la sala en la que está el jugador
-    $query = "SELECT COUNT(*) as nPlayers FROM `Room` WHERE RoomId = '".$_GET['Room']."' AND Active=1";
+    $query = "SELECT COUNT(*) as nPlayers FROM `Rooms` WHERE RoomId = '".$_GET['Room']."' AND Active=1";
     $result = $mysqli->query($query);
     $row = $result->fetch_assoc();
     $playersInRoom = $row['nPlayers'];
