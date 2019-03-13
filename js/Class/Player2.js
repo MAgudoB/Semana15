@@ -103,7 +103,7 @@ function Player2() {
     }
 
     this.checkButtonCollision = function () {
-        if (squareCollision(this.x, this.y, this.img.width, this.img.height,
+        if (squareCollision(this.x + 16, this.y + 16, 1, 1,
             switchButton.x, switchButton.y, switchButton.src.width, switchButton.src.height)) {
             if (!this.inButton) {
                 switchButton.trigger();
