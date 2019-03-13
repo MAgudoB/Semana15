@@ -75,10 +75,10 @@ function userLogged(data) {
 }
 
 function goToLobby(data) {
-    if (data != "KO") {
+    if (data != "KO" || data != "NOROOM") {
         console.log("Moving to lobby");
         //Nos guardamos en local el id del room y el ID de usuario
-        window.localStorage.setItem('myRoom', $("#roomID").val());
+        window.localStorage.setItem('myRoom', data);
         window.localStorage.setItem('myID', userID);
         //Nos movemos al lobby
         window.location.href = "lobby.html";

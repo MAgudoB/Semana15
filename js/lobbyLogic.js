@@ -25,7 +25,7 @@ function playersInLobby(data) {
     console.log(data);
     if (data == "OK") {
         console.log("Pos entro en el if");
-        window.location.href = "game.html"
+        window.location.href = "index.html"
     }
     else {
         lobbyTimer = setTimeout("checkNPlayers()", 100);
