@@ -22,7 +22,7 @@ var switchOnImage = undefined;
 var switchButton = undefined;
 var door = undefined;
 
-
+var userID;
 //Images
 
 var imgMap = new Image();
