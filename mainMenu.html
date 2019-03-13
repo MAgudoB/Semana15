@@ -1,11 +1,15 @@
 <html>
 
 <head>
+	<link rel="stylesheet" href="js/lib/style.css">
     <script src="js/lib/jquery-3.3.1.min.js"></script>
     <script src="js/mainMenu.js"></script>
 </head>
 
 <body>
+
+	<!--LOGIN-->
+
     <div id="container">
         <h1 id="signIn">Login</h1>
         <input type="text" placeholder="User" name="UserName" id="loginUser"><br>
@@ -17,6 +21,24 @@
         <button id="register" onclick="signUp()">Send</button>
         <p id="errorMessage"></p>
     </div>
+	
+	<!--MENU-->
+
+    <div id="mainMenu" class="menu">
+        <div id="subMainMenu" class="subMenu1">
+            <p id="newGame" class="menuItems">New Game</p>
+            <p class="menuItems">Join Game</p>
+        </div>
+    </div>
+	
+	<div id="joinGameMenu" class="menu">
+        <div id="subJoinGameMenu" class="subMenu1">
+			<p id="roomID" class="menuItems">Enter Room ID:</p>
+			<input type="text" placeholder="Room" name="RoomID" id="roomID"><br>
+            <p class="menuItems">Join Game</p>
+        </div>
+    </div>
+	
 </body>
 
 </html>
