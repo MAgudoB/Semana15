@@ -14,7 +14,7 @@
         $result2 = $mysqli->query($query2);
         $row2 = $result2->fetch_assoc();
         //Si ya tiene el maximo de jugadores, creamos una nueva
-        if($row2['nPlayers'] == 3){
+        if($row2['nPlayers'] == 2){
             $nextRoom = $row['roomId']+1;
             $query = "INSERT INTO `Room` (roomId, playerId, position, characterId) VALUES ('".$nextRoom."','".$_GET['UserId']."',1,'".$charId."')";
             $result = $mysqli->query($query);

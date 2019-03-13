@@ -1,9 +1,9 @@
 $(document).ready(function () {
     initCollisionCanvas();
     initMapCanvas();
-    initInteractiveCanvas();    
+    initInteractiveCanvas();
     loadImages();
-    initButtonsAndDoors();    
+    initButtonsAndDoors();
     loadScenary(1);
 });
 
@@ -13,8 +13,5 @@ function loadScenary(scenaryId) {
 }
 
 function start() {
-
-
-
-
+    loop();
 }
