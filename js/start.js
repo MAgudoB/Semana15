@@ -1,8 +1,7 @@
 $(document).ready(function () {
     initCollisionCanvas();
     initMapCanvas();
-    initInteractiveCanvas();
-    //initScannersCanvas();
+    initInteractiveCanvas();    
     loadImages();
     initButtonsAndDoors();    
     loadScenary(1);
