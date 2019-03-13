@@ -14,7 +14,7 @@ $(document).ready(function () {
     });
 
     $("#joinGame").mousedown(function () {
-        $("joinGameMenu").show();
+        $("#joinGameMenu").show();
     });
 
     $("#joinGameButton").mousedown(function () {
