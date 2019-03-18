@@ -14,6 +14,7 @@ $(document).ready(function () {
     });
 
     $("#joinGame").mousedown(function () {
+        $("#mainMenu").hide();
         $("#joinGameMenu").show();
     });
 
@@ -69,7 +70,7 @@ function userLogged(data) {
     console.log("Success");
     userID = data;
     //Hide container
-    $("container").hide();
+    $("#loginMenu").hide();
     //Change mainMenu display to true
     $("#mainMenu").show();
 }
