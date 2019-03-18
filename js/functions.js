@@ -1,20 +1,40 @@
+function initMapCanvas() {
+    $("#map").attr("width", CANVAS_WIDTH);
+    $("#map").attr("height", CANVAS_HEIGHT);
+    MAP_CTX = document.getElementById("map").getContext("2d");
+}
+
+function initCollisionCanvas() {
+    $("#collision").attr("width", CANVAS_WIDTH);
+    $("#collision").attr("height", CANVAS_HEIGHT);
+    COLLISION_CTX = document.getElementById("collision").getContext("2d");
+}
+
+function initInteractiveCanvas() {
+    $("#interactive").attr("width", CANVAS_WIDTH);
+    $("#interactive").attr("height", CANVAS_HEIGHT);
+    INTERACTIVE_CTX = document.getElementById("interactive").getContext("2d");
+}
+
+
 $(document).keydown(function (event) {
-    if (event.key == "w") { player.movementControl(0, -1); }
-    if (event.key == "s") { player.movementControl(0, 1); }
-    if (event.key == "a") { player.movementControl(1, -1); }
-    if (event.key == "d") { player.movementControl(1, 1); }
-    if (event.key == "q") { player.movementControl(2, -0.1); }
-    if (event.key == "r") { player.movementControl(2, 0.1); }
-    if (event.key == " ") { player.shoot(); }
-    if (event.key == "1") { player.selectWeapon(1); }
-    if (event.key == "2") { player.selectWeapon(2); }
-    if (event.key == "3") { player.selectWeapon(3); }
+    if (event.key == "w") { Player.acceleration = 1; }
+    if (event.key == "s") { Player.aceleration = -1; }
+    if (event.key == "a") { Player.rotation = -0.15; }
+    if (event.key == "d") { Player.rotation = +0.15; }    
+
+    if (event.key == "q") { Player.shootPortal(0) }
+    if (event.key == "e") { Player.shootPortal(1) }
+    // if (event.key == " ") { Player.shoot(); }
+    // if (event.key == "1") { Player.selectWeapon(1); }
+    // if (event.key == "2") { Player.selectWeapon(2); }
+    // if (event.key == "3") { Player.selectWeapon(3); }
 });
 $(document).keyup(function (event) {
-    if (event.key == "w") { }
-    if (event.key == "s") { }
-    if (event.key == "a") { }
-    if (event.key == "d") { }
+    if (event.key == "w") { Player.acceleration = 0 }
+    if (event.key == "s") { Player.acceleration = 0 }
+    if (event.key == "a") { Player.rotation = 0 }
+    if (event.key == "d") { Player.rotation = 0 }
 });
 
 
@@ -140,4 +160,48 @@ function reload() {
 
 function backToMenu() {
     window.location.href = "index.html";
+}
+
+
+//SEMANA 14 NUEVO
+
+function checkPixel(mapData, pixelOne, pixelTwo, pixelThree) {
+    var isSelected = false;
+    if (mapData[0] == pixelOne && mapData[1] == pixelTwo && mapData[2] == pixelThree) {
+        isSelected = true;
+    }
+    return isSelected;
+}
+
+function loadImages() {
+    doorImageV = new Image();
+    openDoorImageV = new Image();
+    switchOffImage = new Image();
+    switchOnImage = new Image();
+    switchOffImage.src = "img/deactivatedButton.png";
+    switchOnImage.src = "img/activeButton.png";
+    doorImageV.src = "img/closedDoorV.png";
+    openDoorImageV.src = "img/openDoorV.png";
+}
+
+function initButtonsAndDoors() {
+    door = new Door(704, 257, doorImageV, openDoorImageV);
+    switchButton = new Switch(170, 450, switchOffImage, switchOnImage, door);
+}
+
+$(document).ready(function () {
+    $("#newGame").click(function () {
+        //CARGAR nueva partida base de datos y mantener al jugador en espera
+
+        //Pruebas
+        $("#menu").fadeOut("slow");
+        loop();
+    });
+});
+
+function squareCollision(x1, y1, w1, h1, x2, y2, w2, h2) {
+    return x1 < x2 + w2
+        && x1 + w1 > x2
+        && y1 < y2 + h2
+        && y1 + h1 > y2;
 }

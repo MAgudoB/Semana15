@@ -27,4 +27,5 @@ function Movable(imgSrc, x, y) {
             return undefined;
         }
     }
+    
 }

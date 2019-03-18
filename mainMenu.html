@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="js/lib/style.css">
+    <script src="js/lib/jquery-3.3.1.min.js"></script>
+    <script src="js/mainMenu.js"></script>
+</head>
+
+<body>
+
+    <!--LOGIN-->
+
+    <div id="container">
+        <h1 id="signIn">Login</h1>
+        <input type="text" placeholder="User" name="UserName" id="loginUser"><br>
+        <input type="password" placeholder="Password" name="Password" id="loginPassword"><br>
+        <button id="login" onclick="login()">Send</button>
+        <h1 id="signUp">Register</h1>
+        <input type="text" name="UserName" placeholder="User" id="signUpUser"><br>
+        <input type="password" name="Password" placeholder="Password" id="signUpPassword"><br>
+        <button id="register" onclick="signUp()">Send</button>
+        <p id="errorMessage"></p>
+    </div>
+
+    <!--MENU-->
+
+    <div id="mainMenu" class="menu">
+        <div id="subMainMenu" class="subMenu1">
+            <p id="newGame" class="menuItems">New Game</p>
+            <p id="joinGame" class="menuItems">Join Game</p>
+        </div>
+    </div>
+
+    <div id="joinGameMenu" class="menu">
+        <div id="subJoinGameMenu" class="subMenu1">
+            <p id="roomIDText" class="menuItems">Enter Room ID:</p>
+            <input type="text" placeholder="Room" name="RoomID" id="roomID"><br>
+            <p id="joinGameButton" class="menuItems">Join Game</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+#containerCanvas{    
+    position:relative;
+}
+canvas{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+.menu{
+    position:absolute;
+    background-color:red;    
+    width:768px;
+    height: 576px;
+}
+.menuItems{
+    font-size:40px;
+}
+.menuItems:hover{
+    color:green;
+}
+
+.subMenu1{
+    position:absolute;
+    top:150px;
+    left:300px;
+}
+
+#container {
+    margin: auto;
+    width: 50%;
+    background-color: #ffffffc4;
+    border: solid 2px #000000;
+    border-radius: 15px;
+    margin-top: 200px;
+    text-align: -webkit-center;
+}
+
+#mainMenu{
+	display:none;
+}
+
+#newGameMenu{
+	display:none;
+}
+
+#joinGameMenu{
+	display:none;
+}
