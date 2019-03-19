@@ -1,5 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function() {
     myRoom = localStorage.getItem('myRoom');
+    $("#roomId").html(myRoom);
     lobbyTimer = setTimeout("checkNPlayers()", 100);
 });
 
