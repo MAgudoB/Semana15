@@ -25,7 +25,7 @@ canvas{
     left:300px;
 }
 
-#container {
+.container {
     margin: auto;
     width: 50%;
     background-color: #ffffffc4;
