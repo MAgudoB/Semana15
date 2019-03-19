@@ -11,6 +11,7 @@ var SCANNERS_CTX = undefined;
 
 var timer;
 var Player = new Player2();
+var secondPlayer = new Player2();
 
 //Image
 var doorImageV = undefined;
