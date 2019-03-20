@@ -2,7 +2,7 @@
     $mysqli = new mysqli("localhost", "semana14", "semana14", "game");
 	//Comprobar si existe la sala
     $query = "SELECT RoomId FROM `Rooms` WHERE RoomId = '".$_POST['RoomId']."'";
-    //Room tiene Id, RoomId, UserId	
+    //Room tiene Id, RoomId, UserId
     $result = $mysqli->query($query);
     $row = $result->fetch_assoc();
     //Si la sala existe
@@ -29,9 +29,9 @@
 		}
 		//Si no está llena se te añade.
 		else {
-			$queryInsert = "INSERT INTO `Rooms` (RoomId, UserId,Active) VALUES ('".$_POST['RoomId']."','".$_POST['UserID']."',1)";
+			$queryInsert = "INSERT INTO `Rooms` (RoomId, UserId,Active) VALUES ('".$_POST['RoomId']."','".$_POST['UserId']."',1)";
 			$result = $mysqli->query($queryInsert);
-			echo $_GET['RoomId'];
+			echo $_POST['RoomId'];
 		}
 	}
 	//Si no devolvemos error

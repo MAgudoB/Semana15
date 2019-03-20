@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    $("#newGame").mousedown(function () {
+$(document).ready(function() {
+    $("#newGame").mousedown(function() {
         //Si pulsa en new se crea una nueva sala y se añade el id del usuario
         $.ajax({
             async: true,
@@ -13,12 +13,12 @@ $(document).ready(function () {
         });
     });
 
-    $("#joinGame").mousedown(function () {
+    $("#joinGame").mousedown(function() {
         $("#mainMenu").hide();
         $("#joinGameMenu").show();
     });
 
-    $("#joinGameButton").mousedown(function () {
+    $("#joinGameButton").mousedown(function() {
         //Si pulsa el join cogemos el id room que nos ha pasado y tendremos que comprobarlo contra la BD
         var roomID = $("#roomID").val();
         $.ajax({
@@ -66,13 +66,13 @@ function login() {
 }
 
 function userLogged(data) {
-    console.log(data);
-    console.log("Success");
-    userID = data;
-    //Hide container
-    $("#loginMenu").hide();
-    //Change mainMenu display to true
-    $("#mainMenu").show();
+    if (data != "KO") {
+        userID = data;
+        //Hide container
+        $("#loginMenu").hide();
+        //Change mainMenu display to true
+        $("#mainMenu").show();
+    }
 }
 
 function goToLobby(data) {
