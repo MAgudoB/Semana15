@@ -1,4 +1,3 @@
-
 //Canvas dimensions
 var CANVAS_WIDTH = 768;
 var CANVAS_HEIGHT = 576;
@@ -10,9 +9,9 @@ var INTERACTIVE_CTX = undefined;
 var SCANNERS_CTX = undefined;
 
 var timer;
-var Player = new Player2();
-var secondPlayer = new Player2();
-
+var Player = new Player2(600, 400);
+var secondPlayer = new Player2(150, 400);
+var numPlayer = 0;
 //Image
 var doorImageV = undefined;
 var openDoorImageV = undefined;
@@ -31,4 +30,3 @@ imgMap.src = "img/map_1.png";
 
 var imgMapCollisions = new Image();
 imgMapCollisions.src = "img/map_color_1.png";
-

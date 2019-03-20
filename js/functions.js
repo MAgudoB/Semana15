@@ -17,24 +17,40 @@ function initInteractiveCanvas() {
 }
 
 
-$(document).keydown(function (event) {
-    if (event.key == "w") { Player.acceleration = 1; }
-    if (event.key == "s") { Player.aceleration = -1; }
-    if (event.key == "a") { Player.rotation = -0.15; }
-    if (event.key == "d") { Player.rotation = +0.15; }    
+$(document).keydown(function(event) {
+    if (numPlayer == 1) {
+        if (event.key == "w") { Player.acceleration = 1; }
+        if (event.key == "s") { Player.aceleration = -1; }
+        if (event.key == "a") { Player.rotation = -0.15; }
+        if (event.key == "d") { Player.rotation = +0.15; }
 
-    if (event.key == "q") { Player.shootPortal(0) }
-    if (event.key == "e") { Player.shootPortal(1) }
-    // if (event.key == " ") { Player.shoot(); }
-    // if (event.key == "1") { Player.selectWeapon(1); }
-    // if (event.key == "2") { Player.selectWeapon(2); }
-    // if (event.key == "3") { Player.selectWeapon(3); }
+        if (event.key == "q") { Player.shootPortal(0) }
+        if (event.key == "e") { Player.shootPortal(1) }
+    }
+    else {
+        if (event.key == "w") { secondPlayer.acceleration = 1; }
+        if (event.key == "s") { secondPlayer.aceleration = -1; }
+        if (event.key == "a") { secondPlayer.rotation = -0.15; }
+        if (event.key == "d") { secondPlayer.rotation = +0.15; }
+
+        if (event.key == "q") { secondPlayer.shootPortal(0) }
+        if (event.key == "e") { secondPlayer.shootPortal(1) }
+    }
+
 });
-$(document).keyup(function (event) {
-    if (event.key == "w") { Player.acceleration = 0 }
-    if (event.key == "s") { Player.acceleration = 0 }
-    if (event.key == "a") { Player.rotation = 0 }
-    if (event.key == "d") { Player.rotation = 0 }
+$(document).keyup(function(event) {
+    if (numPlayer == 1) {
+        if (event.key == "w") { Player.acceleration = 0 }
+        if (event.key == "s") { Player.acceleration = 0 }
+        if (event.key == "a") { Player.rotation = 0 }
+        if (event.key == "d") { Player.rotation = 0 }
+    }
+    else {
+        if (event.key == "w") { secondPlayer.acceleration = 0 }
+        if (event.key == "s") { secondPlayer.acceleration = 0 }
+        if (event.key == "a") { secondPlayer.rotation = 0 }
+        if (event.key == "d") { secondPlayer.rotation = 0 }
+    }
 });
 
 
@@ -50,9 +66,9 @@ function drawImageRot(micontexto, img, x, y, width, height, rad) {
     micontexto.translate(x + width / 2, y + height / 2);
     //Rotate the canvas around the origin
     micontexto.rotate(rad);
-    //draw the image    
+    //draw the image
     micontexto.drawImage(img, width / 2 * (-1), height / 2 * (-1), width, height);
-    //reset the canvas  
+    //reset the canvas
     micontexto.rotate((rad) * (-1));
     micontexto.translate((x + width / 2) * (-1), (y + height / 2) * (-1));
 }
@@ -189,8 +205,8 @@ function initButtonsAndDoors() {
     switchButton = new Switch(170, 450, switchOffImage, switchOnImage, door);
 }
 
-$(document).ready(function () {
-    $("#newGame").click(function () {
+$(document).ready(function() {
+    $("#newGame").click(function() {
         //CARGAR nueva partida base de datos y mantener al jugador en espera
 
         //Pruebas
@@ -200,8 +216,8 @@ $(document).ready(function () {
 });
 
 function squareCollision(x1, y1, w1, h1, x2, y2, w2, h2) {
-    return x1 < x2 + w2
-        && x1 + w1 > x2
-        && y1 < y2 + h2
-        && y1 + h1 > y2;
+    return x1 < x2 + w2 &&
+        x1 + w1 > x2 &&
+        y1 < y2 + h2 &&
+        y1 + h1 > y2;
 }

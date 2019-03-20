@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $("#newGame").mousedown(function() {
+        setPlayerNumber(1);
         //Si pulsa en new se crea una nueva sala y se añade el id del usuario
         $.ajax({
             async: true,
@@ -19,6 +20,7 @@ $(document).ready(function() {
     });
 
     $("#joinGameButton").mousedown(function() {
+        setPlayerNumber(2);
         //Si pulsa el join cogemos el id room que nos ha pasado y tendremos que comprobarlo contra la BD
         var roomID = $("#roomID").val();
         $.ajax({
@@ -34,6 +36,10 @@ $(document).ready(function() {
     });
 
 });
+
+function setPlayerNumber(num) {
+    window.localStorage.setItem('playerNumber', num);
+}
 
 function signUp() {
     var user = $("#signUpUser").val();
