@@ -1,4 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function() {
+    numPlayer = localStorage.getItem('playerNumber');
+    userID = localStorage.getItem('myID');
     initCollisionCanvas();
     initMapCanvas();
     initInteractiveCanvas();
